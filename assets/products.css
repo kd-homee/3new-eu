@@ -1,0 +1,740 @@
+/* =============================================================
+   3New SRL — products.css
+   既存 style.css への追加分のみ。既存トークン / クラスを最大限再利用。
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   1. Page hero (products listing & detail)
+   ------------------------------------------------------------- */
+.page-hero {
+  background: linear-gradient(165deg, #f8fafd 0%, #edf2f9 100%);
+  padding: 56px 0 56px;
+  border-bottom: 1px solid var(--gray-light);
+}
+.page-hero .container { display: flex; flex-direction: column; gap: 14px; }
+.page-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-en);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.page-hero-title {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+}
+.page-hero-lead {
+  font-size: 14.5px;
+  color: var(--text-body);
+  line-height: 1.85;
+  max-width: 720px;
+}
+.page-hero-meta {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.page-hero-meta dl { display: flex; gap: 6px; align-items: baseline; }
+.page-hero-meta dt {
+  font-family: var(--font-en);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+.page-hero-meta dd { color: var(--navy); font-weight: 600; }
+
+/* -------------------------------------------------------------
+   2. Breadcrumbs
+   ------------------------------------------------------------- */
+.crumbs {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 18px 0 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.crumbs a { color: var(--text-muted); transition: color var(--trans); }
+.crumbs a:hover { color: var(--navy); }
+.crumbs .sep { color: var(--gray-mid); }
+
+/* -------------------------------------------------------------
+   3. Filter chips
+   ------------------------------------------------------------- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  font-family: var(--font-jp);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-body);
+  background: var(--white);
+  border: 1px solid var(--gray-mid);
+  padding: 7px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color var(--trans), background var(--trans), border-color var(--trans);
+}
+.chip:hover { color: var(--navy); border-color: var(--navy); }
+.chip.is-on { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.filter-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.filter-sort select {
+  font-family: var(--font-jp);
+  font-size: 12.5px;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------------
+   4. Product card — listing variant
+   既存 .product-card を継承して情報を追加するため、新クラスを併用
+   ------------------------------------------------------------- */
+.products-grid.products-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-card {
+  /* Override: re-allow clickable button via .product-card a */
+  position: relative;
+}
+.product-card-eyebrow {
+  font-size: 11px;
+  font-family: var(--font-en);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.product-card-audience {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  padding: 10px 0 0;
+  border-top: 1px dashed var(--gray-light);
+  margin-top: 4px;
+}
+.product-card-audience b {
+  color: var(--text-body);
+  font-weight: 600;
+  margin-right: 6px;
+}
+.product-card-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.product-card-specs .pill {
+  font-family: var(--font-en);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+  background: var(--blue-pale);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.product-card-specs .pill-plain {
+  background: var(--gray-pale);
+  color: var(--text-muted);
+}
+.product-card-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-light);
+  margin-top: auto;
+}
+.product-card-price {
+  display: none; /* 価格公開まで非表示 */
+}
+.product-card-price .label {
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.product-card-price .amount {
+  font-family: var(--font-en);
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 700;
+}
+.product-card-price .amount small {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: 4px;
+}
+.product-card-detail-btn {
+  font-family: var(--font-jp);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 9px 14px;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--trans), color var(--trans);
+  /* Override the disabled-look from existing .product-card .btn rule */
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  align-self: auto;
+}
+.product-card-detail-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Status badge variants for product cards */
+.product-status-badge.is-live {
+  background: var(--green-bg);
+  color: var(--green-badge);
+}
+.product-status-badge.is-soon {
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+.product-status-badge.is-prep {
+  background: var(--gray-light);
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------
+   5. Cross-sell banner row
+   ------------------------------------------------------------- */
+.banner-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 22px;
+  margin-top: 56px;
+}
+.banner {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.banner-dark {
+  background: linear-gradient(140deg, var(--navy-dark) 0%, var(--navy) 60%, var(--blue) 120%);
+  border-color: transparent;
+  color: var(--white);
+}
+.banner-eyebrow {
+  font-size: 11px;
+  font-family: var(--font-en);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.banner-dark .banner-eyebrow { color: rgba(255,255,255,0.7); }
+.banner-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.5;
+}
+.banner-dark .banner-title { color: var(--white); }
+.banner-body {
+  font-size: 13.5px;
+  color: var(--text-body);
+  line-height: 1.8;
+}
+.banner-dark .banner-body { color: rgba(255,255,255,0.82); }
+.banner-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+
+/* -------------------------------------------------------------
+   6. Detail page two-column layout
+   ------------------------------------------------------------- */
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 56px;
+  align-items: start;
+  padding: 56px 0 72px;
+}
+
+.detail-section { margin-bottom: 44px; }
+.detail-section:last-child { margin-bottom: 0; }
+.detail-section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--blue-pale);
+  margin-bottom: 18px;
+}
+.detail-section h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 20px 0 10px;
+}
+.detail-section p {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.detail-section p.lede {
+  font-size: 14.5px;
+  color: var(--navy);
+}
+
+/* Audience grid (2×2) */
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+.audience-cell {
+  background: var(--gray-pale);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.audience-cell .k {
+  font-family: var(--font-en);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.audience-cell .v {
+  font-size: 13.5px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* Contents list */
+.contents-list {
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 4px 0;
+  margin: 0;
+}
+.contents-list li {
+  display: flex;
+  gap: 14px;
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--gray-light);
+  font-size: 13.5px;
+}
+.contents-list li:last-child { border-bottom: 0; }
+.contents-list .num {
+  font-family: var(--font-en);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--blue-light);
+  flex: 0 0 30px;
+  padding-top: 2px;
+}
+.contents-list .item-title { color: var(--navy); font-weight: 600; }
+.contents-list .item-note { display: block; color: var(--text-muted); font-size: 12px; margin-top: 3px; line-height: 1.7; }
+
+/* Refs table */
+.refs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 13px;
+}
+.refs-table th,
+.refs-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--gray-light);
+  text-align: left;
+  vertical-align: top;
+}
+.refs-table tr:last-child td { border-bottom: 0; }
+.refs-table th {
+  background: var(--gray-pale);
+  font-family: var(--font-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.refs-table td.code {
+  font-family: var(--font-en);
+  font-weight: 600;
+  color: var(--blue);
+  white-space: nowrap;
+  font-size: 12.5px;
+}
+.refs-table td.what { color: var(--text-body); }
+
+/* Scenes grid */
+.scenes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.scene {
+  background: var(--gray-pale);
+  border: 1px solid var(--gray-light);
+  border-left: 3px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.scene-when {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.scene-what { font-size: 13px; color: var(--text-body); line-height: 1.75; }
+
+/* Preview strip */
+.preview-strip {
+  background: var(--gray-pale);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.preview-thumb {
+  aspect-ratio: 3 / 4;
+  background:
+    repeating-linear-gradient(45deg, #fff 0 6px, #e6edf6 6px 12px);
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+}
+.preview-thumb span {
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.92);
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+
+/* Formats grid */
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 6px;
+}
+.format-card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-top: 3px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 16px 16px 14px;
+}
+.format-card .ext {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+}
+.format-card .name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 4px 0 6px;
+}
+.format-card .note { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+
+/* Related notes */
+.related-notes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.note-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  transition: border-color var(--trans), box-shadow var(--trans), transform var(--trans);
+}
+.note-card:hover {
+  border-color: var(--blue-pale);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+.note-card .src {
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.note-card .ttl { font-size: 13.5px; color: var(--navy); font-weight: 700; line-height: 1.6; }
+.note-card .meta { font-size: 11.5px; color: var(--text-muted); font-family: var(--font-en); }
+
+/* Inline disclaimer block */
+.disclaimer-inline {
+  background: var(--gray-pale);
+  border-left: 3px solid var(--gray-mid);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+.disclaimer-inline h3 {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+/* -------------------------------------------------------------
+   7. Sticky purchase rail
+   ------------------------------------------------------------- */
+.buy-rail {
+  position: sticky;
+  top: 84px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.buy-card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.buy-card .status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+.buy-card .status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.buy-card .price {
+  font-family: var(--font-en);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.buy-card .price small {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: 6px;
+}
+.buy-card .price-note {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin: 8px 0 18px;
+  line-height: 1.7;
+}
+.buy-card .stripe-btn {
+  width: 100%;
+  font-family: var(--font-jp);
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--blue);
+  color: var(--white);
+  border: 0;
+  border-radius: var(--radius);
+  padding: 13px;
+  cursor: not-allowed;
+  opacity: 0.5;
+  position: relative;
+}
+.buy-card .stripe-note {
+  text-align: center;
+  font-family: var(--font-en);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin: 6px 0 18px;
+}
+.buy-card .sub-btn {
+  width: 100%;
+  font-family: var(--font-jp);
+  font-size: 13px;
+  font-weight: 700;
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 11px;
+  cursor: pointer;
+  transition: background var(--trans), color var(--trans);
+}
+.buy-card .sub-btn:hover { background: var(--navy); color: var(--white); }
+.buy-card .tertiary {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--blue-pale);
+}
+.buy-card .tertiary:hover { color: var(--navy); }
+.buy-card .specs {
+  border-top: 1px solid var(--gray-light);
+  padding-top: 16px;
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+.buy-card .specs .k {
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+.buy-card .specs .v {
+  font-size: 12.5px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.consult-card {
+  background: linear-gradient(140deg, var(--navy-dark) 0%, var(--navy) 70%, var(--blue) 130%);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+.consult-card .eyebrow {
+  font-family: var(--font-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.consult-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 10px 0 8px;
+  color: var(--white);
+  line-height: 1.5;
+}
+.consult-card p {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.consult-card .price-line {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 14px;
+}
+.consult-card .price-line b { color: var(--white); font-weight: 700; }
+.consult-card .cta {
+  display: block;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius);
+  color: var(--white);
+  text-decoration: none;
+  transition: background var(--trans);
+}
+.consult-card .cta:hover { background: rgba(255,255,255,0.18); }
+
+/* -------------------------------------------------------------
+   8. Responsive
+   ------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .products-grid.products-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .banner-row { grid-template-columns: 1fr; }
+  .detail-layout { grid-template-columns: 1fr; gap: 32px; }
+  .buy-rail { position: static; }
+}
+@media (max-width: 768px) {
+  .products-grid.products-grid-3 { grid-template-columns: 1fr; }
+  .audience-grid,
+  .scenes-grid,
+  .related-notes,
+  .formats-grid,
+  .preview-strip { grid-template-columns: 1fr 1fr; }
+  .preview-strip { grid-template-columns: repeat(3, 1fr); }
+  .filter-bar { gap: 10px; }
+}

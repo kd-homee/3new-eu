@@ -1,0 +1,10 @@
+# Visual companion sessions
+.superpowers/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
