@@ -1347,16 +1347,18 @@ button { font-family: inherit; }
 
 /* 本文テキスト */
 #sib-container .sib-text-form-block p {
-  font-size: 14px !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
   line-height: 1.75 !important;
-  color: var(--text-body) !important;
+  color: var(--text-muted) !important;
 }
 
 /* ラベル */
 #sib-container .entry__label {
   font-family: var(--font-jp) !important;
-  font-size: 14px !important;
-  color: var(--text-body) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--text-muted) !important;
 }
 
 /* 入力フィールド */
@@ -1386,8 +1388,9 @@ button { font-family: inherit; }
 /* チェックボックス同意文 */
 #sib-container .entry__choice span {
   font-family: var(--font-jp) !important;
-  font-size: 13px !important;
-  color: var(--text-body) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--text-muted) !important;
 }
 
 /* 注釈テキスト */
