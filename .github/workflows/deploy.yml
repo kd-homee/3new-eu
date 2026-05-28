@@ -29,5 +29,5 @@ jobs:
               git remote add origin https://github.com/kd-homee/3new-eu.git
             fi
             git fetch origin main
-            git reset --hard origin/main
+            git reset --hard FETCH_HEAD
           EOF
