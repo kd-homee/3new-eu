@@ -1333,16 +1333,17 @@ button { font-family: inherit; }
   max-width: 520px;
 }
 
-/* タイトルブロック */
+/* タイトルブロック（全体）*/
 #sib-container .sib-form-block p {
   font-family: var(--font-jp) !important;
-  color: var(--navy) !important;
 }
 
-/* タイトル（32px → サイズを抑える） */
-#sib-container .sib-form-block:first-child p {
-  font-size: clamp(18px, 2vw, 22px) !important;
-  font-weight: 700 !important;
+/* 説明文・同意文は小さく細く */
+#sib-container .sib-text-form-block p,
+#sib-container .entry__choice span p {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--text-muted) !important;
 }
 
 /* 本文テキスト */
