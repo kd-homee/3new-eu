@@ -1338,10 +1338,10 @@ button { font-family: inherit; }
   font-family: var(--font-jp) !important;
 }
 
-/* 説明文・同意文は小さく細く */
+/* 説明文・同意文 */
 #sib-container .sib-text-form-block p,
 #sib-container .entry__choice span p {
-  font-size: 12px !important;
+  font-size: 15px !important;
   font-weight: 400 !important;
   color: var(--text-muted) !important;
 }
