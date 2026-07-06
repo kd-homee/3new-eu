@@ -273,69 +273,96 @@ button { font-family: inherit; }
    Hero
    ============================================================= */
 .hero {
-  background: linear-gradient(165deg, #f8fafd 0%, #edf2f9 100%);
-  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 90% at 85% -10%, var(--blue-pale) 0%, transparent 60%),
+    var(--white);
+  padding: 96px 0 72px;
+}
+.hero-inner { max-width: 760px; }
+
+.hero-badge {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--blue-pale);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
 }
 
-.hero-inner {
+.hero-headline {
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+}
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: 15.5px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+
+.hero-trust {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 1px solid var(--gray-light);
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+.hero-trust li::before {
+  content: "✓ ";
+  color: var(--blue);
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 56px 0 44px; }
+  .hero-cta { flex-direction: column; }
+  .hero-cta .btn { width: 100%; }
+  .hero-trust { flex-direction: column; gap: 8px; }
+}
+
+/* Legacy hero — /en/ still uses the old markup until the EN refresh */
+.hero-inner:has(.hero-banner) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
-  padding-top: 88px;
-  padding-bottom: 96px;
+  max-width: var(--max-w);
 }
-
-.hero-text {
+.hero-inner:has(.hero-banner) .hero-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 24px;
 }
-
-.hero-banner {
-  line-height: 0;
-  overflow: visible;
-}
+.hero-banner { line-height: 0; overflow: visible; }
 .hero-banner-img {
   width: 150%;
   height: auto;
   display: block;
   clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
 }
-
-.hero-headline {
-  font-size: clamp(20px, 2.4vw, 32px);
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.45;
-}
-
-.hero-sub {
-  font-family: var(--font-jp);
-  font-size: clamp(13px, 1.2vw, 14px);
-  color: var(--text-muted);
-  line-height: 1.85;
-}
-
-.hero-cta {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-}
-
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .hero-tags span {
   font-size: 11px;
   font-family: var(--font-en);
   color: var(--text-muted);
-  background: transparent;
   border: 1px solid var(--gray-mid);
   padding: 4px 12px;
   border-radius: 100px;
@@ -1242,14 +1269,14 @@ button { font-family: inherit; }
   .nav-lang-item { margin: 8px 0 0; }
   .nav-lang  { display: block; text-align: center; padding: 10px; }
 
-  /* Hero */
-  .hero-inner      { grid-template-columns: 1fr; gap: 32px; padding: 48px 18px 56px; }
+  /* Hero (legacy markup — /en/ only) */
+  .hero-inner:has(.hero-banner) { grid-template-columns: 1fr; gap: 32px; padding: 48px 18px 56px; }
   .hero-banner     { order: -1; }
   .hero-banner-img { height: 220px; }
-  .hero-headline   { font-size: 20px; }
-  .hero-sub        { font-size: 13px; }
-  .hero-cta        { flex-direction: column; }
-  .hero-cta .btn   { width: 100%; max-width: 320px; }
+  .hero-inner:has(.hero-banner) .hero-headline { font-size: 20px; }
+  .hero-inner:has(.hero-banner) .hero-sub      { font-size: 13px; }
+  .hero-inner:has(.hero-banner) .hero-cta      { flex-direction: column; }
+  .hero-inner:has(.hero-banner) .hero-cta .btn { width: 100%; max-width: 320px; }
 
   /* Sections */
   .section { padding: 64px 0; }
@@ -1288,7 +1315,7 @@ button { font-family: inherit; }
   .container { padding: 0 18px; }
 
   .section-title { font-size: 20px; }
-  .hero-headline { font-size: 19px; line-height: 1.6; }
+  .hero-inner:has(.hero-banner) .hero-headline { font-size: 19px; line-height: 1.6; }
 
   .about-table th { width: 90px; font-size: 12px; }
   .about-table td { font-size: 13px; }
