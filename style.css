@@ -124,11 +124,12 @@ button { font-family: inherit; }
   background: var(--navy);
   color: var(--white);
   border-color: var(--navy);
+  box-shadow: 0 4px 14px rgba(36, 64, 142, 0.25);
 }
 .btn-primary:hover {
   background: var(--blue);
   border-color: var(--blue);
-  box-shadow: 0 6px 20px rgba(28, 48, 104, 0.28);
+  box-shadow: 0 6px 20px rgba(36, 64, 142, 0.32);
 }
 
 .btn-outline {
@@ -156,6 +157,15 @@ button { font-family: inherit; }
   width: 100%;
   margin-bottom: 18px;
 }
+
+.btn-gradient {
+  background: var(--grad);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(36, 64, 142, 0.28);
+}
+.btn-gradient:hover { filter: brightness(1.1); }
 
 /* =============================================================
    Navigation
@@ -203,13 +213,16 @@ button { font-family: inherit; }
 }
 
 .nav-cta {
-  background: var(--navy);
+  background: var(--grad);
   color: var(--white) !important;
   margin-left: 6px;
   font-weight: 700;
+  border-radius: 999px;
+  padding: 8px 18px;
 }
 .nav-cta:hover {
-  background: var(--blue) !important;
+  filter: brightness(1.12);
+  background: var(--grad) !important;
   color: var(--white) !important;
 }
 
