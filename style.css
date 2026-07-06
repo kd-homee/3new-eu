@@ -4,21 +4,23 @@
 
 /* Custom Properties */
 :root {
-  --navy:        #1c3068;
-  --navy-dark:   #142350;
-  --blue:        #2d61a8;
-  --blue-mid:    #3a74be;
-  --blue-light:  #5b91cc;
-  --blue-pale:   #ddeaf8;
+  --navy:        #24408e;
+  --navy-dark:   #1a2f6b;
+  --blue:        #4a7cc9;
+  --blue-mid:    #5b8fd4;
+  --blue-light:  #7da8dd;
+  --blue-pale:   #eaf1fa;
   --white:       #ffffff;
-  --gray-pale:   #f4f7fb;
-  --gray-light:  #e6edf6;
-  --gray-mid:    #c8d5e8;
-  --text-dark:   #1c3068;
-  --text-body:   #374b6e;
-  --text-muted:  #6b7c9d;
+  --gray-pale:   #f8fafc;
+  --gray-light:  #e2e8f0;
+  --gray-mid:    #cbd5e1;
+  --text-dark:   #0f172a;
+  --text-body:   #334155;
+  --text-muted:  #64748b;
   --green-badge: #2a7a4a;
   --green-bg:    #e8f4ed;
+  --grad:        linear-gradient(90deg, #24408e, #4a7cc9);
+  --grad-diag:   linear-gradient(135deg, #24408e, #4a7cc9);
 
   --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   --font-en: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -26,9 +28,9 @@
   --max-w:    1080px;
   --radius:   8px;
   --radius-lg: 14px;
-  --shadow-sm: 0 2px 8px rgba(28, 48, 104, 0.07);
-  --shadow:    0 4px 16px rgba(28, 48, 104, 0.10);
-  --shadow-lg: 0 8px 32px rgba(28, 48, 104, 0.15);
+  --shadow-sm: 0 2px 8px rgba(36, 64, 142, 0.07);
+  --shadow:    0 4px 16px rgba(36, 64, 142, 0.10);
+  --shadow-lg: 0 8px 32px rgba(36, 64, 142, 0.15);
   --trans:     0.22s ease;
 }
 
