@@ -178,9 +178,30 @@
   const emailLink = document.getElementById('email-link');
   const emailText = document.getElementById('email-text');
 
-  if (emailLink && emailText) {
-    emailLink.href        = `mailto:${email}?subject=${encodeURIComponent('お問い合わせ：EU MDR対応支援について')}`;
-    emailText.textContent = email;
+  if (emailText) { emailText.textContent = email; }
+  if (emailLink) {
+    emailLink.href = `mailto:${email}?subject=${encodeURIComponent('お問い合わせ：EU MDR対応支援について')}`;
+  }
+
+  /* -----------------------------------------------------------
+     Contact form: build mailto with prefilled body
+     ----------------------------------------------------------- */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const topic = contactForm.querySelector('input[name="topic"]:checked')?.value || 'その他';
+      const name  = document.getElementById('cf-name').value.trim();
+      const msg   = document.getElementById('cf-msg').value.trim();
+      const subject = `【30分無料相談】${topic}｜${name}`;
+      const body =
+        `お名前・会社名：${name}\n` +
+        `ご相談区分：${topic}\n\n` +
+        `ご相談内容：\n${msg}\n\n` +
+        `（3new.eu のフォームから作成）`;
+      window.location.href =
+        `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
   }
 
   /* -----------------------------------------------------------

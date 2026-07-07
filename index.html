@@ -341,52 +341,30 @@
     </section>
 
     <!-- ============================================================
-         CONTACT
+         CONTACT (30-min free consultation form)
          ============================================================ -->
     <section class="section section-alt" id="contact">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">お問い合わせ</h2>
-          <p class="section-lead">まずは現状をお聞かせください。初回の概要確認は無料で承っております。</p>
+          <h2 class="section-title">30分無料相談・お問い合わせ</h2>
+          <p class="section-lead">現状整理だけでも歓迎です。通常2〜3営業日以内にご返信します。日本語・英語対応。</p>
         </div>
-        <div class="contact-grid">
-          <div class="contact-topics">
-            <h3>こんなご相談を承っています</h3>
-            <ul class="contact-list">
-              <li>EU MDR 対応を始めたいが、何から手をつければよいかわからない</li>
-              <li>CER（臨床評価報告書）の作成・文献調査を外部委託したい</li>
-              <li>Authorised Representative の選定・評価・契約を見直したい</li>
-              <li>欧州での臨床調査向けに Legal Representative・CRO 管理体制を整備したい</li>
-              <li>欧州代理店・Importer・Distributor の MDR 対応状況を確認したい</li>
-              <li>GDPR 対応の現状確認・整備が必要</li>
-              <li>ベルギー・欧州での法人設立・拠点構築を検討している</li>
-            </ul>
-          </div>
-          <div class="contact-box-wrap">
-            <div class="contact-box">
-              <p class="contact-note">
-                初回の概要確認は無料です。技術文書のレビュー、規制判断、契約内容の確認、調査・分析、スポット相談は有償対応となります。今後 Stripe 決済によるスポット相談・有料レビューに対応予定です。
-              </p>
-              <a href="#" id="email-link" class="btn btn-primary btn-block">
-                メールでお問い合わせ
-              </a>
-              <p class="contact-email" id="email-text"></p>
-              <p class="contact-meta">
-                通常 2〜3 営業日以内にご返信します。<br>
-                日本語・英語どちらでも対応可能です。
-              </p>
-              <div class="contact-linkedin">
-                <p class="contact-linkedin-label">代表プロフィール</p>
-                <a href="https://www.linkedin.com/in/kanae-doda-442491a/" class="contact-linkedin-link" target="_blank" rel="noopener noreferrer">
-                  <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M20.447 20.452H17.01v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.585V9h3.299v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.914 1.914 0 1 1 0-3.828 1.914 1.914 0 0 1 0 3.828zm1.648 13.019H3.689V9h3.296v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  LinkedIn で確認する
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <form class="contact-form" id="contact-form">
+          <fieldset class="chip-group">
+            <legend>ご相談内容（選択してください）</legend>
+            <label class="chip"><input type="radio" name="topic" value="EU参入をこれから検討" checked><span>EU参入をこれから検討</span></label>
+            <label class="chip"><input type="radio" name="topic" value="CER・文献調査"><span>CER・文献調査</span></label>
+            <label class="chip"><input type="radio" name="topic" value="AR・体制構築"><span>AR・体制構築</span></label>
+            <label class="chip"><input type="radio" name="topic" value="その他"><span>その他</span></label>
+          </fieldset>
+          <input type="text" id="cf-name" placeholder="お名前・会社名" required>
+          <textarea id="cf-msg" rows="3" placeholder="ご相談内容（任意・一行でもOK）"></textarea>
+          <button type="submit" class="btn btn-gradient btn-block">メールを作成する（30秒で完了）</button>
+          <p class="contact-form-note">
+            送信ボタンでお使いのメールソフトが開きます。直接メールの場合は <a href="#" id="email-link"><span id="email-text"></span></a> へ。<br>
+            本フォーム・初回相談は一般的な情報整理を目的とし、法的助言・認証取得の保証を構成するものではありません（<a href="/disclaimer-coi-confidentiality/">免責事項</a>）。
+          </p>
+        </form>
       </div>
     </section>
 
