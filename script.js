@@ -205,6 +205,19 @@
   }
 
   /* -----------------------------------------------------------
+     Mobile sticky CTA: hide while #contact is on screen
+     ----------------------------------------------------------- */
+  const mobileCta  = document.getElementById('mobile-cta');
+  const contactSec = document.getElementById('contact');
+  if (mobileCta && contactSec && 'IntersectionObserver' in window) {
+    new IntersectionObserver(
+      entries => entries.forEach(en =>
+        mobileCta.classList.toggle('is-hidden', en.isIntersecting)),
+      { threshold: 0.15 }
+    ).observe(contactSec);
+  }
+
+  /* -----------------------------------------------------------
      Current year in footer copyright (optional)
      ----------------------------------------------------------- */
   const copyEl = document.querySelector('.footer-copy');
