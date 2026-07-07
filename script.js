@@ -1,5 +1,5 @@
 /* =============================================================
-   3New SRL — script.js
+   3NEW srl — script.js
    ============================================================= */
 
 (function () {
@@ -225,5 +225,59 @@
     const year = new Date().getFullYear();
     copyEl.innerHTML = copyEl.innerHTML.replace('2024', String(year));
   }
+
+  /* -----------------------------------------------------------
+     Cookie / privacy consent banner
+     ----------------------------------------------------------- */
+  (function initCookieBanner() {
+    const KEY = '3new-cookie-consent';
+    let stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (_) { return; }
+    window.__cookieConsent = stored;
+    if (stored === 'accepted' || stored === 'rejected') return;
+
+    const isEn = (document.documentElement.lang || '').toLowerCase().startsWith('en') ||
+                 location.pathname.indexOf('/en/') === 0;
+    const t = isEn ? {
+      label: 'Cookie & privacy notice',
+      text: 'This site processes minimal data only for functions such as form submission and newsletter sign-up (Brevo). ' +
+            'We do not use analytics or advertising tracking. See our ' +
+            '<a href="/en/#disclaimer">Disclaimer</a> for details.',
+      reject: 'Essential only',
+      accept: 'Accept'
+    } : {
+      label: 'Cookie・プライバシーに関するお知らせ',
+      text: '当サイトは、フォーム送信やメルマガ登録（Brevo）に必要な機能のみを目的として最小限のデータを扱います。' +
+            '解析・広告目的のトラッキングは行っていません。詳細は' +
+            '<a href="/privacy-policy/">プライバシーポリシー</a>をご覧ください。',
+      reject: '必要なもののみ',
+      accept: '同意する'
+    };
+
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', t.label);
+    banner.innerHTML =
+      '<p class="cookie-banner-text">' + t.text + '</p>' +
+      '<div class="cookie-banner-actions">' +
+      '<button type="button" class="cookie-btn cookie-btn-reject" data-consent="rejected">' + t.reject + '</button>' +
+      '<button type="button" class="cookie-btn cookie-btn-accept" data-consent="accepted">' + t.accept + '</button>' +
+      '</div>';
+
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (_) {}
+      window.__cookieConsent = value;
+      banner.classList.add('is-leaving');
+      setTimeout(() => banner.remove(), 300);
+    }
+
+    banner.querySelectorAll('.cookie-btn').forEach(btn => {
+      btn.addEventListener('click', () => decide(btn.dataset.consent));
+    });
+
+    document.body.appendChild(banner);
+    requestAnimationFrame(() => banner.classList.add('is-visible'));
+  })();
 
 })();

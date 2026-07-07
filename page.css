@@ -1,5 +1,5 @@
 /* =============================================================
-   3New SRL — page.css  (サブページ共通スタイル)
+   3NEW srl — page.css  (サブページ共通スタイル)
    ============================================================= */
 
 /* ----- Page hero ----- */
@@ -341,6 +341,13 @@
   accent-color: var(--blue);
 }
 .gdpr-check a { color: var(--blue); text-decoration: underline; }
+.gdpr-check-error {
+  background: #fdecec;
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  margin: -8px -10px 12px;
+  outline: 1px solid #e5a3a3;
+}
 .required-badge {
   font-size: 11px;
   background: var(--navy);

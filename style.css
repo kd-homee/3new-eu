@@ -1,5 +1,5 @@
 /* =============================================================
-   3New SRL — style.css
+   3NEW srl — style.css
    ============================================================= */
 
 /* Custom Properties */
@@ -352,6 +352,8 @@ button { font-family: inherit; }
   gap: 24px;
 }
 .hero-banner { line-height: 0; overflow: visible; }
+/* About page reuses the EN hero-banner; clip the 150% bleed to avoid horizontal scroll */
+.hero-about { overflow: hidden; }
 .hero-banner-img {
   width: 150%;
   height: auto;
@@ -511,7 +513,7 @@ button { font-family: inherit; }
 }
 
 /* =============================================================
-   Why 3New SRL — Features
+   Why 3NEW srl — Features
    ============================================================= */
 .features-grid {
   display: grid;
@@ -1311,8 +1313,8 @@ button { font-family: inherit; }
   }
   .nav-menu.is-open { display: flex; }
 
-  .nav-link  { padding: 12px 14px; font-size: 15px; }
-  .nav-cta   { text-align: center; margin: 8px 0 0; padding: 13px; }
+  .nav-link  { display: block; padding: 12px 14px; font-size: 15px; }
+  .nav-cta   { display: block; text-align: center; margin: 10px 0 0; padding: 13px; border-radius: var(--radius); }
   .nav-lang-item { margin: 8px 0 0; }
   .nav-lang  { display: block; text-align: center; padding: 10px; }
 
@@ -1683,4 +1685,67 @@ button { font-family: inherit; }
 @media (max-width: 767px) {
   .mobile-cta { display: flex; }
   body { padding-bottom: 64px; }
+}
+
+/* =============================================================
+   Cookie / privacy consent banner (injected by script.js)
+   ============================================================= */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 300;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.18);
+  padding: 16px 20px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cookie-banner.is-visible { opacity: 1; transform: translateY(0); }
+.cookie-banner.is-leaving { opacity: 0; transform: translateY(16px); }
+.cookie-banner-text {
+  flex: 1 1 320px;
+  font-size: 12.5px;
+  color: var(--text-body);
+  line-height: 1.75;
+  margin: 0;
+}
+.cookie-banner-text a { color: var(--blue); text-decoration: underline; }
+.cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-btn {
+  font-family: var(--font-jp);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--trans), color var(--trans), filter var(--trans);
+}
+.cookie-btn-reject {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--gray-mid);
+}
+.cookie-btn-reject:hover { border-color: var(--navy); }
+.cookie-btn-accept {
+  background: var(--grad);
+  color: var(--white);
+  border: 0;
+}
+.cookie-btn-accept:hover { filter: brightness(1.1); }
+@media (max-width: 767px) {
+  .cookie-banner { bottom: 76px; flex-direction: column; align-items: stretch; gap: 12px; }
+  .cookie-banner-text { flex: 0 0 auto; }
+  .cookie-banner-actions { justify-content: stretch; }
+  .cookie-btn { flex: 1; }
 }

@@ -1,6 +1,6 @@
-# 3New SRL — EU MDR Consulting for Japanese Medical Device Manufacturers
+# 3NEW srl — EU MDR Consulting for Japanese Medical Device Manufacturers
 
-> 3New SRL is a Belgian-based consultancy helping Japanese medical device manufacturers navigate EU MDR (Medical Device Regulation (EU) 2017/745) compliance, clinical evaluation, European market entry, and AI-assisted regulatory workflows. Services are provided in Japanese and English. Initial consultations are free.
+> 3NEW srl is a Belgian-based consultancy helping Japanese medical device manufacturers navigate EU MDR (Medical Device Regulation (EU) 2017/745) compliance, clinical evaluation, European market entry, and AI-assisted regulatory workflows. Services are provided in Japanese and English. Initial consultations are free.
 
 ## Key Facts
 
@@ -13,7 +13,7 @@
 ## Services
 
 - [CER & Clinical Evaluation / Literature Search Support](https://3new.eu/cer-literature-search/): Support for Clinical Evaluation Reports (CER) under EU MDR. Literature search (PubMed, EMBASE), SOTA analysis, equivalent device assessment, CER drafting. MDCG 2020-1 and MDCG 2020-13 compliant.
-- [Authorised Representative (AR)](https://3new.eu/authorised-representative/): AR selection, evaluation, contract review, mandate, QMS/SOP alignment. 3New SRL is registered as AR in EUDAMED. AR appointment subject to individual assessment.
+- [Authorised Representative (AR)](https://3new.eu/authorised-representative/): AR selection, evaluation, contract review, mandate, QMS/SOP alignment. 3NEW srl is registered as AR in EUDAMED. AR appointment subject to individual assessment.
 - [Legal Representative & CRO Management](https://3new.eu/legal-representative-cro/): Legal Representative arrangements and CRO selection, management, and contract review for European clinical investigations.
 - [Economic Operator Audit](https://3new.eu/economic-operator-audit/): MDR compliance gap analysis for AR, Importer, and Distributor obligations under Articles 11, 13, and 14 MDR.
 - [GDPR & Belgium Market Access](https://3new.eu/gdpr-belgium-market-access/): GDPR compliance for clinical and PMS data, DPA review, Belgium entity setup, European market entry roadmap.
@@ -27,7 +27,7 @@
 
 ## Company Information
 
-- [About 3New SRL](https://3new.eu/about/): Company profile, representative background, EUDAMED registration details.
+- [About 3NEW srl](https://3new.eu/about/): Company profile, representative background, EUDAMED registration details.
 - [Contact](https://3new.eu/contact/): Initial consultations are free. Services in Japanese and English.
 - [Privacy Policy](https://3new.eu/privacy-policy/): GDPR-compliant. Data processors: Stripe (payments), Brevo (newsletter, EU-based).
 - [Disclaimer & COI Policy](https://3new.eu/disclaimer-coi-confidentiality/): Scope of services, conflict of interest policy, confidentiality policy.
@@ -38,7 +38,7 @@ Q: Is the initial consultation free?
 A: Yes. Initial overview consultations (online, approximately 30-60 minutes) are free. Engagements involving technical document review, regulatory assessment, contract review, or analysis are charged.
 
 Q: Do you support small manufacturers and startups?
-A: Yes. 3New SRL welcomes enquiries from startups, early-stage companies, and SMEs regardless of company size or product stage.
+A: Yes. 3NEW srl welcomes enquiries from startups, early-stage companies, and SMEs regardless of company size or product stage.
 
 Q: Is English available?
 A: Yes. Services are available in Japanese and English. Coordination with European partners is conducted in English.
@@ -50,7 +50,7 @@ Q: What is an Authorised Representative (AR) under EU MDR?
 A: Under Article 11 MDR, manufacturers outside the EU must designate an AR established in the EU. The AR acts as the manufacturer's EU contact for regulatory authorities, maintains copies of the Declaration of Conformity and technical documentation, and supports MDR compliance obligations.
 
 Q: Can AI be used for EU MDR regulatory work?
-A: AI can support document review, literature screening, summarisation, and checklist-based preparation. However, final regulatory judgment, clinical evaluation conclusions, benefit-risk decisions, and QMS approvals must remain with qualified human reviewers. 3New SRL designs controlled AI-assisted workflows that define where AI supports the process and where human review is required.
+A: AI can support document review, literature screening, summarisation, and checklist-based preparation. However, final regulatory judgment, clinical evaluation conclusions, benefit-risk decisions, and QMS approvals must remain with qualified human reviewers. 3NEW srl designs controlled AI-assisted workflows that define where AI supports the process and where human review is required.
 
 ## Topics Covered
 

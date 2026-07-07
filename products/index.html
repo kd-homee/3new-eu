@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>有料資料一覧 | 3New SRL</title>
+  <title>有料資料一覧 | 3NEW srl</title>
   <meta name="description" content="EU MDR 対応実務資料。先行技術調査・CER 文献調査・AR 監査計画・GDPR 整備チェックリストなど、条文参照付きの実務資料を提供します。">
-  <meta property="og:title" content="有料資料一覧 | 3New SRL">
+  <meta property="og:title" content="有料資料一覧 | 3NEW srl">
   <meta property="og:description" content="EU MDR 実務に使えるチェックリスト・文献調査ガイド。Stripe 決済対応予定。">
   <meta property="og:type" content="website">
   <meta name="robots" content="index, follow">
@@ -26,8 +26,8 @@
        ============================================================ -->
   <header class="site-header" id="site-header">
     <nav class="nav container">
-      <a href="/" class="nav-logo" aria-label="3New SRL トップへ">
-        <img src="/assets/logo-long.png" alt="3New SRL" class="logo-img">
+      <a href="/" class="nav-logo" aria-label="3NEW srl トップへ">
+        <img src="/assets/logo-long.png" alt="3NEW srl" class="logo-img">
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
         <span></span>
@@ -81,10 +81,10 @@
         <!-- Filter bar -->
         <div class="filter-bar">
           <div class="filter-chips" role="group" aria-label="カテゴリフィルタ">
-            <button class="chip is-on" aria-pressed="true">すべて（4）</button>
-            <button class="chip" aria-pressed="false">臨床評価・CER</button>
-            <button class="chip" aria-pressed="false">Authorised Rep.</button>
-            <button class="chip" aria-pressed="false">GDPR・臨床調査</button>
+            <button class="chip is-on" aria-pressed="true" data-filter="all">すべて（4）</button>
+            <button class="chip" aria-pressed="false" data-filter="cer">臨床評価・CER</button>
+            <button class="chip" aria-pressed="false" data-filter="ar">Authorised Rep.</button>
+            <button class="chip" aria-pressed="false" data-filter="gdpr">GDPR・臨床調査</button>
           </div>
           <div class="filter-sort">
             <label for="sort">並び順</label>
@@ -100,7 +100,7 @@
         <div class="products-grid products-grid-3">
 
           <!-- 1: 先行技術調査・SOTA整理 -->
-          <article class="product-card">
+          <article class="product-card" data-cat="cer" data-price="28000" data-order="1">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
               <span class="product-card-eyebrow">臨床評価・CER</span>
               <span class="product-status-badge is-coming-soon">先行案内受付中</span>
@@ -124,7 +124,7 @@
           </article>
 
           <!-- 2: CER作成のための自社製品 文献調査方法 -->
-          <article class="product-card">
+          <article class="product-card" data-cat="cer" data-price="28000" data-order="2">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
               <span class="product-card-eyebrow">臨床評価・CER</span>
               <span class="product-status-badge is-coming-soon">先行案内受付中</span>
@@ -148,7 +148,7 @@
           </article>
 
           <!-- 3: Authorised Representative 監査計画・チェックリスト -->
-          <article class="product-card">
+          <article class="product-card" data-cat="ar" data-price="38000" data-order="3">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
               <span class="product-card-eyebrow">Authorised Representative</span>
               <span class="product-status-badge is-coming-soon">先行案内受付中</span>
@@ -172,7 +172,7 @@
           </article>
 
           <!-- 4: 欧州臨床調査・治験実施のためのGDPR整備チェックリスト -->
-          <article class="product-card">
+          <article class="product-card" data-cat="gdpr" data-price="48000" data-order="4">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
               <span class="product-card-eyebrow">GDPR・臨床調査</span>
               <span class="product-status-badge is-coming-soon">先行案内受付中</span>
@@ -234,7 +234,7 @@
         <div class="disclaimer-body">
           <p>本サイトに掲載するすべての情報は、一般的な参考情報の提供を目的としており、<strong>法的助言・医学的助言・規制当局への申請代理・認証取得の保証を構成するものではありません。</strong></p>
           <p>有料資料に含まれるチェックリスト、テンプレート、条文訳、実務メモは、一般的な情報提供および社内検討の補助を目的とするものであり、個別製品の MDR 適合性、CE マーキング、Notified Body 審査通過、当局判断を保証するものではありません。EU MDR・MDCG ガイダンス等の規制情報は随時更新されます。個別の規制対応については、最新の一次資料および専門家にご確認ください。</p>
-          <p>3New SRL のサービス範囲には、弁護士・法律事務所としての法的助言、医師・医療機関としての医学的判断、Notified Body・Competent Authority による認証・承認の代替は含まれません。</p>
+          <p>3NEW srl のサービス範囲には、弁護士・法律事務所としての法的助言、医師・医療機関としての医学的判断、Notified Body・Competent Authority による認証・承認の代替は含まれません。</p>
           <p>Authorised Representative、Importer その他 Economic Operator としての受任を伴う業務は、別途の契約、対象機器の確認、技術文書・QMS/PMS 体制・保険条件等の審査を経て個別に判断します。</p>
         </div>
       </div>
@@ -248,7 +248,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="/assets/logo-long.png" alt="3New SRL" class="footer-logo">
+        <img src="/assets/logo-long.png" alt="3NEW srl" class="footer-logo">
         <p class="footer-tagline">medical device → europe</p>
       </div>
       <nav class="footer-nav" aria-label="フッターナビゲーション">
@@ -267,10 +267,55 @@
           </svg>
         </a>
       </div>
-      <p class="footer-copy">&copy; 2025 3New SRL. All rights reserved. &nbsp;|&nbsp; Belgium</p>
+      <p class="footer-copy">&copy; 2025 3NEW srl. All rights reserved. &nbsp;|&nbsp; Belgium</p>
     </div>
   </footer>
 
   <script src="/script.js"></script>
+  <script>
+    (function () {
+      const grid = document.querySelector('.products-grid');
+      const chips = Array.from(document.querySelectorAll('.filter-chips .chip'));
+      const sortSel = document.getElementById('sort');
+      if (!grid || !chips.length) return;
+
+      const cards = Array.from(grid.querySelectorAll('.product-card'));
+      let activeFilter = 'all';
+
+      function applyFilter() {
+        cards.forEach(card => {
+          const show = activeFilter === 'all' || card.dataset.cat === activeFilter;
+          card.style.display = show ? '' : 'none';
+        });
+      }
+
+      function applySort() {
+        const mode = sortSel ? sortSel.value : 'new';
+        const sorted = cards.slice().sort((a, b) => {
+          if (mode === 'price') {
+            return (+a.dataset.price) - (+b.dataset.price);
+          }
+          if (mode === 'cat') {
+            const c = a.dataset.cat.localeCompare(b.dataset.cat);
+            return c !== 0 ? c : (+a.dataset.order) - (+b.dataset.order);
+          }
+          return (+a.dataset.order) - (+b.dataset.order);
+        });
+        sorted.forEach(card => grid.appendChild(card));
+      }
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => { c.classList.remove('is-on'); c.setAttribute('aria-pressed', 'false'); });
+          chip.classList.add('is-on');
+          chip.setAttribute('aria-pressed', 'true');
+          activeFilter = chip.dataset.filter || 'all';
+          applyFilter();
+        });
+      });
+
+      if (sortSel) sortSel.addEventListener('change', applySort);
+    })();
+  </script>
 </body>
 </html>
