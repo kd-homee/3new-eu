@@ -1,5 +1,5 @@
 /* =============================================================
-   3New SRL — products.css
+   3NEW srl — products.css
    既存 style.css への追加分のみ。既存トークン / クラスを最大限再利用。
    ============================================================= */
 
@@ -167,12 +167,16 @@
 }
 .product-card-foot {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
   padding-top: 14px;
   border-top: 1px solid var(--gray-light);
   margin-top: auto;
+}
+.product-card-foot .product-card-detail-btn {
+  text-align: center;
+  margin-top: 2px;
 }
 .product-card-price {
   display: none; /* 価格公開まで非表示 */

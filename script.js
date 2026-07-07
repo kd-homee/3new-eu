@@ -1,5 +1,5 @@
 /* =============================================================
-   3New SRL — script.js
+   3NEW srl — script.js
    ============================================================= */
 
 (function () {
@@ -178,9 +178,43 @@
   const emailLink = document.getElementById('email-link');
   const emailText = document.getElementById('email-text');
 
-  if (emailLink && emailText) {
-    emailLink.href        = `mailto:${email}?subject=${encodeURIComponent('お問い合わせ：EU MDR対応支援について')}`;
-    emailText.textContent = email;
+  if (emailText) { emailText.textContent = email; }
+  if (emailLink) {
+    emailLink.href = `mailto:${email}?subject=${encodeURIComponent('お問い合わせ：EU MDR対応支援について')}`;
+  }
+
+  /* -----------------------------------------------------------
+     Contact form: build mailto with prefilled body
+     ----------------------------------------------------------- */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const topic = contactForm.querySelector('input[name="topic"]:checked')?.value || 'その他';
+      const name  = document.getElementById('cf-name').value.trim();
+      const msg   = document.getElementById('cf-msg').value.trim();
+      const subject = `【30分無料相談】${topic}｜${name}`;
+      const body =
+        `お名前・会社名：${name}\n` +
+        `ご相談区分：${topic}\n\n` +
+        `ご相談内容：\n${msg}\n\n` +
+        `（3new.eu のフォームから作成）`;
+      window.location.href =
+        `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+
+  /* -----------------------------------------------------------
+     Mobile sticky CTA: hide while #contact is on screen
+     ----------------------------------------------------------- */
+  const mobileCta  = document.getElementById('mobile-cta');
+  const contactSec = document.getElementById('contact');
+  if (mobileCta && contactSec && 'IntersectionObserver' in window) {
+    new IntersectionObserver(
+      entries => entries.forEach(en =>
+        mobileCta.classList.toggle('is-hidden', en.isIntersecting)),
+      { threshold: 0.15 }
+    ).observe(contactSec);
   }
 
   /* -----------------------------------------------------------
@@ -191,5 +225,59 @@
     const year = new Date().getFullYear();
     copyEl.innerHTML = copyEl.innerHTML.replace('2024', String(year));
   }
+
+  /* -----------------------------------------------------------
+     Cookie / privacy consent banner
+     ----------------------------------------------------------- */
+  (function initCookieBanner() {
+    const KEY = '3new-cookie-consent';
+    let stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (_) { return; }
+    window.__cookieConsent = stored;
+    if (stored === 'accepted' || stored === 'rejected') return;
+
+    const isEn = (document.documentElement.lang || '').toLowerCase().startsWith('en') ||
+                 location.pathname.indexOf('/en/') === 0;
+    const t = isEn ? {
+      label: 'Cookie & privacy notice',
+      text: 'This site processes minimal data only for functions such as form submission and newsletter sign-up (Brevo). ' +
+            'We do not use analytics or advertising tracking. See our ' +
+            '<a href="/en/#disclaimer">Disclaimer</a> for details.',
+      reject: 'Essential only',
+      accept: 'Accept'
+    } : {
+      label: 'Cookie・プライバシーに関するお知らせ',
+      text: '当サイトは、フォーム送信やメルマガ登録（Brevo）に必要な機能のみを目的として最小限のデータを扱います。' +
+            '解析・広告目的のトラッキングは行っていません。詳細は' +
+            '<a href="/privacy-policy/">プライバシーポリシー</a>をご覧ください。',
+      reject: '必要なもののみ',
+      accept: '同意する'
+    };
+
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', t.label);
+    banner.innerHTML =
+      '<p class="cookie-banner-text">' + t.text + '</p>' +
+      '<div class="cookie-banner-actions">' +
+      '<button type="button" class="cookie-btn cookie-btn-reject" data-consent="rejected">' + t.reject + '</button>' +
+      '<button type="button" class="cookie-btn cookie-btn-accept" data-consent="accepted">' + t.accept + '</button>' +
+      '</div>';
+
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (_) {}
+      window.__cookieConsent = value;
+      banner.classList.add('is-leaving');
+      setTimeout(() => banner.remove(), 300);
+    }
+
+    banner.querySelectorAll('.cookie-btn').forEach(btn => {
+      btn.addEventListener('click', () => decide(btn.dataset.consent));
+    });
+
+    document.body.appendChild(banner);
+    requestAnimationFrame(() => banner.classList.add('is-visible'));
+  })();
 
 })();
